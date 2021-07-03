@@ -15,10 +15,10 @@ class _SplashScreenState extends State<SplashScreen> {
     //SharedPreferences = vai conferir se tem alguma chave chamada token dentro do app
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
 
-    if (sharedPreferences.getString('token') != null) {
-      return true;
-    } else {
+    if (sharedPreferences.getString('token') == null) {
       return false;
+    } else {
+      return true;
     }
   }
 
@@ -41,6 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //posso colocar uma imagem ou um container ao invez desse circular
       body: Center(
         child: CircularProgressIndicator(),
       ),
